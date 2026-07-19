@@ -15,3 +15,4 @@ Depois, abra o endereço exibido no terminal.
 *É preciso ter conexão de internet pra funcionar, pois é necessário conectar a API
 
 *Ainda não Finalizado*
+Sprint 2/4
