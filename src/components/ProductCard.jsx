@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function ProductCard({ produto }) {
   const precoFormatado = produto.preco.toLocaleString('pt-BR', {
     style: 'currency',
@@ -6,9 +8,12 @@ function ProductCard({ produto }) {
 
   return (
     <article className="card-produto">
-      <img src={produto.imagem} alt={produto.nome} />
-      <h3>{produto.nome}</h3>
-      <p>{precoFormatado}</p>
+      <Link to={`/produto/${produto.id}`}>
+        <img src={produto.imagem} alt={produto.nome} />
+        <h3>{produto.nome}</h3>
+        <p>{precoFormatado}</p>
+        <span>Ver detalhes</span>
+      </Link>
     </article>
   );
 }

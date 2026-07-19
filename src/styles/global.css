@@ -45,6 +45,28 @@ nav a {
   font-weight: bold;
 }
 
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.filtros button {
+  padding: 9px 16px;
+  color: #111a35;
+  background-color: white;
+  border: 1px solid #111a35;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.filtros button.selecionado,
+.filtros button:hover {
+  color: white;
+  background-color: #111a68;
+}
+
 .banner {
   padding: 85px 8%;
   text-align: center;
@@ -101,6 +123,11 @@ nav a {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
+.card-produto a {
+  color: #111a35;
+  text-decoration: none;
+}
+
 .card-produto img {
   display: block;
   width: 100%;
@@ -117,6 +144,61 @@ nav a {
   margin: 0;
   color: #e46c24;
   font-size: 18px;
+  font-weight: bold;
+}
+
+.card-produto span {
+  display: inline-block;
+  margin-top: 15px;
+  color: #111a68;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.mensagem {
+  text-align: center;
+}
+
+.pagina-detalhe {
+  max-width: 1000px;
+  min-height: 500px;
+  margin: 0 auto;
+  padding: 55px 25px;
+}
+
+.voltar {
+  color: #111a68;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.detalhe-produto {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  margin-top: 35px;
+}
+
+.detalhe-produto img {
+  width: 100%;
+}
+
+.detalhe-produto h1 {
+  margin: 8px 0;
+  font-size: 38px;
+}
+
+.tipo-produto {
+  margin: 0;
+  color: #e46c24;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.preco-detalhe {
+  color: #e46c24;
+  font-size: 25px;
   font-weight: bold;
 }
 
@@ -142,5 +224,10 @@ footer {
 
   .lista-produtos {
     grid-template-columns: 1fr;
+  }
+
+  .detalhe-produto {
+    grid-template-columns: 1fr;
+    gap: 25px;
   }
 }

@@ -1,15 +1,16 @@
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo-mr-capman.png';
 
 function Header() {
   return (
     <header>
-      <a href="/" className="logo">
+      <Link to="/" className="logo">
         <img src={logo} alt="Mr. CapMan" />
-      </a>
+      </Link>
 
       <nav>
-        <a href="#produtos">Início</a>
-        <a href="#produtos">Produtos</a>
+        <Link to="/">Início</Link>
+        <Link to="/#produtos">Produtos</Link>
       </nav>
     </header>
   );

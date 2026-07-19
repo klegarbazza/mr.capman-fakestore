@@ -1,68 +1,20 @@
-import { useEffect, useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-import ProductCard from './components/ProductCard';
-import boneImage from './assets/boneprod.webp';
+import Home from './pages/Home';
+import ProductDetail from './pages/ProductDetail';
 
 function App() {
-  const [produtos, setProdutos] = useState([]);
-  const [carregando, setCarregando] = useState(true);
-
-  useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then((resposta) => resposta.json())
-      .then((produtosDaApi) => {
-        // A API não possui bonés, por isso usei os preços dela e
-        // apresentei os dois produtos com o tema da nossa loja.
-        const boneAzul = {
-          id: produtosDaApi[0].id,
-          nome: 'Boné Azul Classic',
-          preco: produtosDaApi[0].price,
-          imagem: boneImage,
-        };
-
-        const boneMarinho = {
-          id: produtosDaApi[1].id,
-          nome: 'Boné Marinho Street',
-          preco: produtosDaApi[1].price,
-          imagem: boneImage,
-        };
-
-        setProdutos([boneAzul, boneMarinho]);
-        setCarregando(false);
-      })
-      .catch(() => {
-        setCarregando(false);
-      });
-  }, []);
-
   return (
-    <>
+    <BrowserRouter>
       <Header />
 
-      <main>
-        <section className="banner">
-          <p>NOVA COLEÇÃO</p>
-          <h1>O boné certo para o seu estilo.</h1>
-          <a href="#produtos">Ver produtos</a>
-        </section>
-
-        <section id="produtos" className="produtos">
-          <h2>Produtos em destaque</h2>
-
-          {carregando ? (
-            <p>Carregando produtos...</p>
-          ) : (
-            <div className="lista-produtos">
-              {produtos.map((produto) => (
-                <ProductCard key={produto.id} produto={produto} />
-              ))}
-            </div>
-          )}
-        </section>
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/produto/:id" element={<ProductDetail />} />
+      </Routes>
 
       <footer>© 2026 Mr. CapMan</footer>
-    </>
+    </BrowserRouter>
   );
 }
 
